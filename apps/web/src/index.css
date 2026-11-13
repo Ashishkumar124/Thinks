@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --brand-blue: 202 90% 36%;
+    --brand-navy: 199 68% 8%;
+    --brand-light: 199 79% 95%;
+
+    --background: 0 0% 100%;
+    --foreground: 199 68% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 199 68% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 199 68% 8%;
+    --primary: 202 90% 36%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 199 79% 95%;
+    --secondary-foreground: 199 68% 8%;
+    --muted: 199 79% 95%;
+    --muted-foreground: 199 15% 40%;
+    --accent: 199 79% 95%;
+    --accent-foreground: 199 68% 8%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 199 20% 88%;
+    --input: 199 20% 84%;
+    --ring: 202 90% 36%;
+    --radius: 0.125rem;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', system-ui, sans-serif;
+  overflow-x: clip;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  -webkit-font-smoothing: antialiased;
+}
+
+.tdm-display {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.tdm-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.tdm-marquee {
+  animation: tdm-scroll 32s linear infinite;
+}
+
+@keyframes tdm-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+.tdm-grain {
+  background-image: radial-gradient(hsl(var(--brand-blue) / 0.35) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+:focus-visible {
+  outline: 2px solid hsl(var(--brand-blue));
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .tdm-marquee { animation: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
